@@ -6,7 +6,7 @@ from annotation_mongo import MongoAnnotation
 
 
 annotator_name = "Shahrukh Khan"
-annotator_file_name = "generated_queries_anusha.csv"
+annotator_file_name = "dataset.csv"
 
 ## mongo credentials from environment variables
 credentials = {
