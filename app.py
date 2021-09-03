@@ -5,8 +5,8 @@ import os
 from annotation_mongo import MongoAnnotation
 
 
-annotator_name = "Shahrukh Khan"
-annotator_file_name = "generated_queries_emerson.csv"
+annotator_name = os.environ["ANNOTATOR_NAME"]
+annotator_file_name = os.environ["DATA_FILE_PATH"]
 
 ## mongo credentials from environment variables
 credentials = {

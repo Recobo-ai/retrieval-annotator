@@ -6,7 +6,8 @@ Run the Docker using followig commands:
 Build Image:
 ```bash
 docker build -f Dockerfile -t app:latest --build-arg MONGO_USERNAME=<MONGO_USERNAME> \
- --build-arg MONGO_PASSWORD=<MONGO_PASSWORD> . 
+--build-arg MONGO_PASSWORD=<MONGO_PASSWORD> ANNOTATOR_NAME=<ANNOTATOR_NAME> \
+--build-arg DATA_FILE_PATH=<DATA_FILE_PATH> .
 ```
 
 Run Container:
