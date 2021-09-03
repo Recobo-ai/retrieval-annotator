@@ -6,7 +6,11 @@ from annotation_mongo import MongoAnnotation
 
 
 annotator_name = "Shahrukh Khan"
+<<<<<<< HEAD:app.py
 annotator_file_name = "generated_queries_emerson.csv"
+=======
+annotator_file_name = "dataset.csv"
+>>>>>>> c6f6d4cd47709195d9a43b9cb39350fee682f996:annotation_ui.py
 
 ## mongo credentials from environment variables
 credentials = {
