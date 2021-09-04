@@ -1,3 +1,4 @@
+from os import error
 import pymongo
 
 
@@ -42,4 +43,17 @@ class MongoAnnotation:
             response = f"annotation saved with id {str(response.inserted_id)}"
         except Exception as e:
             response = "error while saving annotation"
+        return response
+
+    def get_page_number(self, annotator_name):
+        """
+        Get page number for the annotator
+        """
+        response = 0
+        try:
+            response = self.mongo_collection.find_one(
+                sort=[("page_number", pymongo.DESCENDING)]
+            )["page_number"]
+        except Exception as e:
+            print("error while getting page number")
         return response
