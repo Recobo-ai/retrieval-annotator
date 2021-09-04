@@ -72,6 +72,7 @@ all_checkbox = st.checkbox("Select/De-Select all")
 sub_df = data.iloc[start_idx:end_idx]
 col1, col2 = st.columns((1, 9))
 col3, col4 = st.columns((1, 9))
+col5, col6 = st.columns((1, 1))
 
 question_1_marked = col1.checkbox("", value=all_checkbox)
 question_1 = col2.text_input("Questions", value=sub_df.iloc[0]["question"])
@@ -81,7 +82,8 @@ if sub_df.iloc[0]["context"] == sub_df.iloc[1]["context"]:
     context = st.write(sub_df.iloc[0]["context"])
 else:
     st.error("Warning! Contexts are not matching...")
-
+answer_1 = col5.text_input("answer_1", value="")
+answer_2 = col6.text_input("answer_2", value="")
 
 if next.button("Save"):
     data = []
@@ -93,6 +95,7 @@ if next.button("Save"):
                 "context": sub_df.iloc[0]["context"],
                 "annotator": annotator_name,
                 "page_number": session_state.page_number,
+                "answer": answer_1,
             }
         )
     if question_2_marked:
@@ -103,6 +106,7 @@ if next.button("Save"):
                 "context": sub_df.iloc[0]["context"],
                 "annotator": annotator_name,
                 "page_number": session_state.page_number,
+                "answer": answer_2,
             }
         )
     for annotation in data:
