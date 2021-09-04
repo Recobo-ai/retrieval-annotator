@@ -1,6 +1,7 @@
 # Retrieval Annotator
 A simple UI powered by Mongo DB cloud for annotating custom domain specific datasets for Information Retrieval tasks.
-
+TODO:
+Add dataset schema example
 Run the Docker using followig commands:
 
 Build Image:
