@@ -3,4 +3,4 @@ altair
 joblib
 pandas
 numpy
-streamlit
+streamlit==0.88.0
