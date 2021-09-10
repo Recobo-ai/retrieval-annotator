@@ -52,7 +52,8 @@ class MongoAnnotation:
         response = 0
         try:
             response = self.mongo_collection.find_one(
-                sort=[("page_number", pymongo.DESCENDING)]
+                sort=[("page_number", pymongo.DESCENDING)],
+                filter={"annotator": annotator_name},
             )["page_number"]
         except Exception as e:
             print("error while getting page number")
