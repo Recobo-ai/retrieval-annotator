@@ -1,6 +1,6 @@
 pymongo[srv]==3.12.0
-altair==4.1.0
-joblib==0.13.2
-pandas==0.25.1
-numpy==1.17.2
-streamlit==0.88.0
+altair
+joblib
+pandas
+numpy
+streamlit
