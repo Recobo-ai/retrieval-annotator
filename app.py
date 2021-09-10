@@ -24,7 +24,7 @@ mongo_annotation_manager = MongoAnnotation(credentials, mongo_db_config)
 
 # Number of entries per screen
 N = 2
-print("annotator file:", annotator_file_name)
+
 st.markdown(f" {annotator_name} @ Chemical Data Annotations")
 min_page_num = 0
 annotator_page_num = mongo_annotation_manager.get_page_number(
@@ -43,7 +43,6 @@ session_state = SessionState.get(
     checbox_2=str(uuid.uuid4()),
 )
 data = pd.read_csv(annotator_file_name)
-print(data.head())
 data = data.fillna("")
 last_page = len(data) // N
 input_page_num = st.number_input(
