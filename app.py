@@ -43,6 +43,7 @@ session_state = SessionState.get(
     checbox_2=str(uuid.uuid4()),
 )
 data = pd.read_csv(annotator_file_name)
+print(data.head())
 data = data.fillna("")
 last_page = len(data) // N
 input_page_num = st.number_input(
