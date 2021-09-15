@@ -42,6 +42,7 @@ class MongoAnnotation:
             response = self.mongo_collection.insert_one(data)
             response = f"annotation saved with id {str(response.inserted_id)}"
         except Exception as e:
+            print(e)
             response = "error while saving annotation"
         return response
 

@@ -4,7 +4,6 @@ import streamlit as st
 import os
 import uuid
 from annotation_mongo import MongoAnnotation
-from clint.textui import progress
 import requests
 
 
