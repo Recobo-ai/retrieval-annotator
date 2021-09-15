@@ -1,5 +1,5 @@
 mkdir -p ~/.streamlit/
-wget https://media.githubusercontent.com/media/shahrukhx01/retrieval-annotator/main/generated_queries_praveena.csv -O generated_queries_praveena1.csv
+wget https://docs.google.com/spreadsheets/d/1kGPY2inrIc05Ik7162TkmuHRrWOlSDy8aFjKkUw0M8w/export?format=csv -O generated_queries_praveena1.csv
 echo "\
 [server]\n\
 headless = true\n\

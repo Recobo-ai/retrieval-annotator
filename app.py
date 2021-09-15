@@ -4,10 +4,13 @@ import streamlit as st
 import os
 import uuid
 from annotation_mongo import MongoAnnotation
+from clint.textui import progress
+import requests
 
 
 annotator_name = os.environ["ANNOTATOR_NAME"]
 annotator_file_name = os.environ["DATA_FILE_PATH"]
+
 
 ## mongo credentials from environment variables
 credentials = {
@@ -20,7 +23,13 @@ mongo_db_config = {
     "mongo_db": "chemical_domain_annotations",
     "mongo_collection": "chemical_domain_annotations",
 }
+mongo_db_config_questions = {
+    "mongo_connect_url": "mongodb+srv://{}:{}@cluster0.lhdpw.mongodb.net/{}?retryWrites=true&w=majority",
+    "mongo_db": "chemical_domain_annotations",
+    "mongo_collection": "questions",
+}
 mongo_annotation_manager = MongoAnnotation(credentials, mongo_db_config)
+mongo_questions_manager = MongoAnnotation(credentials, mongo_db_config_questions)
 
 # Number of entries per screen
 N = 2
@@ -42,7 +51,12 @@ session_state = SessionState.get(
     checbox_1=str(uuid.uuid4()),
     checbox_2=str(uuid.uuid4()),
 )
-data = pd.read_csv(annotator_file_name)
+results = mongo_questions_manager.mongo_collection.find(
+    {"annotator_name": annotator_name}
+)
+documents = list(results)
+data = pd.DataFrame(documents, columns=documents[0].keys())
+
 data = data.fillna("")
 last_page = len(data) // N
 input_page_num = st.number_input(
