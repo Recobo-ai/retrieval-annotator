@@ -4,4 +4,3 @@ joblib
 pandas
 numpy
 streamlit==0.88.0
-clint
