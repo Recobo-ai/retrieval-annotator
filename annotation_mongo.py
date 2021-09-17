@@ -46,16 +46,17 @@ class MongoAnnotation:
             response = "error while saving annotation"
         return response
 
-    def get_page_number(self, annotator_name):
+    def get_page_number(self, annotator_name, annotator, col):
         """
         Get page number for the annotator
         """
         response = 0
         try:
             response = self.mongo_collection.find_one(
-                sort=[("page_number", pymongo.DESCENDING)],
-                filter={"annotator": annotator_name},
-            )["page_number"]
+                sort=[(col, pymongo.DESCENDING)],
+                filter={annotator: annotator_name},
+            )[col]
         except Exception as e:
+            print(e)
             print("error while getting page number")
         return response
