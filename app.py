@@ -112,9 +112,9 @@ answer_2 = col6.text_input("answer_2", key=session_state.answer_2)
 if data.iloc[0]["context"] == data.iloc[1]["context"]:
     context = st.write(data.iloc[0]["context"])
     if next.button("Save"):
-        data = []
+        annotation = []
         if question_1_marked:
-            data.append(
+            annotation.append(
                 {
                     "_id": data.iloc[0]["question_id"],
                     "question": question_1,
@@ -125,7 +125,7 @@ if data.iloc[0]["context"] == data.iloc[1]["context"]:
                 }
             )
         if question_2_marked:
-            data.append(
+            annotation.append(
                 {
                     "_id": data.iloc[1]["question_id"],
                     "question": question_2,
@@ -135,7 +135,7 @@ if data.iloc[0]["context"] == data.iloc[1]["context"]:
                     "answer": answer_2,
                 }
             )
-        for annotation in data:
+        for annotation in annotation:
             save_response = mongo_annotation_manager.write_to_mongo(annotation)
             st.info(save_response)
         session_state.answer_1 = str(uuid.uuid4())
