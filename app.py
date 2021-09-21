@@ -54,7 +54,7 @@ results = mongo_questions_manager.mongo_collection.find(
     {"annotator_name": annotator_name}
 )
 
-last_page = 37000
+last_page = 18499
 input_page_num = st.number_input(
     "Enter a page number", min_page_num, last_page, min_page_num
 )
