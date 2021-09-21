@@ -25,7 +25,7 @@ mongo_db_config = {
 mongo_db_config_questions = {
     "mongo_connect_url": "mongodb+srv://{}:{}@cluster0.lhdpw.mongodb.net/{}?retryWrites=true&w=majority",
     "mongo_db": "chemical_domain_annotations",
-    "mongo_collection": "questions",
+    "mongo_collection": "questions2",
 }
 mongo_annotation_manager = MongoAnnotation(credentials, mongo_db_config)
 mongo_questions_manager = MongoAnnotation(credentials, mongo_db_config_questions)
